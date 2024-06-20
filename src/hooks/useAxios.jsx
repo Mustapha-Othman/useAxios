@@ -25,6 +25,9 @@ const useAxios = () => {
 
             await axiosClients({
                 method: method,
+                headers: {
+                    'Authorization': 'Bearer ' + import.meta.env.VITE_API_KEY
+                },
                 url: path,
                 data: method.toLowerCase() === "get" ? undefined : postdata, // Only include data for non-GET requests
                 params: method.toLowerCase() === "get" ? getpar : undefined,
